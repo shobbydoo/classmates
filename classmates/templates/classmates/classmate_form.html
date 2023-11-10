@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classmate Edit</title>
+    <style>
+        body {
+            background-color: #fff6e6; /* Light Orange or your shade of orange */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .edit-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background for the container */
+            border: 1px solid #ff6600; /* Dark Orange or your shade of orange */
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #ff6600; /* Dark Orange or your shade of orange */
+        }
+
+        input[type="submit"] {
+            background-color: #ff6600; /* Dark Orange or your shade of orange */
+            color: #fff; /* White text */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e65c00; /* Slightly darker orange on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-container">
+        <h1>Classmate Edit</h1>
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</body>
+</html>

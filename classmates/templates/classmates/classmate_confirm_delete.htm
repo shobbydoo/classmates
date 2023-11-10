@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classmate Delete</title>
+    <style>
+        body {
+            background-color: #ffe6e6; /* Light Red or your shade of red */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .delete-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background for the container */
+            border: 1px solid #cc0000; /* Dark Red or your shade of red */
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #cc0000; /* Dark Red or your shade of red */
+        }
+
+        input[type="submit"] {
+            background-color: #cc0000; /* Dark Red or your shade of red */
+            color: #fff; /* White text */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #990000; /* Slightly darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="delete-container">
+        <h1>Classmate Delete</h1>
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</body>
+</html>

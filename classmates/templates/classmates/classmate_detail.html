@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classmate Details</title>
+    <style>
+        body {
+            background-color: #e6ffe6; /* Light Green or your shade of green */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .details-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background for the container */
+            border: 1px solid #006600; /* Dark Green or your shade of green */
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #006600; /* Dark Green or your shade of green */
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <h1>Classmate Details</h1>
+        <h2>Name: {{ object.firstname }} {{ object.lastname }}</h2>
+        <p>Age: {{ object.age }}</p>
+        <p>Gender: {{ object.gender }}</p>
+        <p>Email Address: {{ object.address }}</p>
+        <p>Contact Number: {{ object.contact_number }}</p>
+    </div>
+</body>
+</html>

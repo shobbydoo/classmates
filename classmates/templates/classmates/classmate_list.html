@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classmates</title>
+    <style>
+
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    animation: gradient 10s infinite alternate;
+    background-image: url('https://www.pngall.com/wp-content/uploads/3/Crowd-Silhouette-PNG-File.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Set the height of the body to the full viewport height */
+    overflow: hidden; /* Hide any overflow content beyond the viewport */
+}
+
+
+       
+
+        h1 {
+            color: #333; /* Dark Grey */
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid #333; /* Dark Grey */
+            background-color: #fff; /* White */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc; /* Light Grey */
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000080; /* Dark Blue or your shade of blue */
+            color: white;
+            text-transform: capitalize; /* Capitalize column headers */
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 7px;
+            margin-right: 5px;
+        }
+
+        .actions-container {
+        display: flex;
+        gap: 10px; /* Add some spacing between the links */
+        }
+
+        .view-container a {
+            background-color: #008000; /* Green for View */
+            color: white;
+        }
+
+        .edit-container a {
+            background-color: #ffa500; /* Orange for Edit */
+            color: white;
+        }
+
+        .delete-container a {
+            background-color: #ff0000; /* Red for Delete */
+            color: white;
+        }
+
+        a:hover {
+            background-color: #000080; /* Dark Blue or your shade of blue */
+            color: white;
+        }
+
+        .new-button {
+            display: inline-block;
+            margin-left: 20px;
+            background-color: #000080; /* Dark Blue or your shade of blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .new-button:hover {
+            background-color: #000066; /* Slightly darker blue on hover */
+        }
+
+thead tr {
+            text-align: center;
+        }
+
+tbody tr {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Classmates</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Email Address</th>
+                <th>Contact Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classmate in object_list %}
+                <tr>
+                    <td>{{ classmate.firstname }}</td>
+                    <td>{{ classmate.lastname }}</td>
+                    <td>{{ classmate.age }}</td>
+                    <td>{{ classmate.gender }}</td>
+                    <td>{{ classmate.address }}</td>
+                    <td>{{ classmate.contact_number }}</td>
+                    <td class="actions-container">
+                        <div class="view-container"><a href="{% url "classmate_view" classmate.id %}">View</a></div>
+                        <div class="edit-container"><a href="{% url "classmate_edit" classmate.id %}">Edit</a></div>
+                        <div class="delete-container"><a href="{% url "classmate_delete" classmate.id %}">Delete</a></div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url "classmate_new" %}" class="new-button">Add New Record</a>
+</body>
+</html>
